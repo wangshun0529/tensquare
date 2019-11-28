@@ -8,6 +8,7 @@ import java.net.URLConnection;
  */
 public class DownloadUtil {
 
+
     public static void download(String urlStr,String filename,String savePath) throws IOException {
 
         URL url = new URL(urlStr);
