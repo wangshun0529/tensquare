@@ -1,4 +1,4 @@
-package com.tensquare.article.pojo;
+package com.tensquare.user.pojo;
 
 import lombok.Data;
 
@@ -6,24 +6,25 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-
 /**
  * 实体类
  * @author Administrator
  *
  */
 @Entity
-@Table(name="tb_channel")
+@Table(name="tb_admin")
 @Data
-public class Channel implements Serializable{
+public class Admin implements Serializable{
 
 	@Id
 	private String id;//ID
 
 
 	
-	private String name;//频道名称
+	private String loginname;//登陆名称
+	private String password;//密码
 	private String state;//状态
+
 
 
 	

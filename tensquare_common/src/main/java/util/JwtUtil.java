@@ -5,15 +5,19 @@ import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
-@ConfigurationProperties("jwt.config")
+/**
+ * Created by Administrator on 2018/4/11.
+ */
+
+@ConfigurationProperties(prefix = "jwt.config")
 public class JwtUtil {
 
-    private String key;//密钥
+    private String key ;
+
+    private long ttl ;//一个小时
 
     public String getKey() {
         return key;
@@ -22,8 +26,6 @@ public class JwtUtil {
     public void setKey(String key) {
         this.key = key;
     }
-
-    private long ttl;//一个小时
 
     public long getTtl() {
         return ttl;
@@ -34,22 +36,21 @@ public class JwtUtil {
     }
 
     /**
-     * 创建JWT
+     * 生成JWT
+     *
      * @param id
      * @param subject
-     * @param roles
      * @return
      */
-    public String createJWT(String id, String subject, String roles){
+    public String createJWT(String id, String subject, String roles) {
         long nowMillis = System.currentTimeMillis();
-        Date exp=new Date(nowMillis+ttl);
+        Date now = new Date(nowMillis);
         JwtBuilder builder = Jwts.builder().setId(id)
                 .setSubject(subject)
-                .setIssuedAt(new Date())
-                .signWith(SignatureAlgorithm.HS256, key)
-                .claim("roles", roles);
-        if(ttl>0){
-            builder.setExpiration( exp );
+                .setIssuedAt(now)
+                .signWith(SignatureAlgorithm.HS256, key).claim("roles", roles);
+        if (ttl > 0) {
+            builder.setExpiration( new Date( nowMillis + ttl));
         }
         return builder.compact();
     }
@@ -60,7 +61,10 @@ public class JwtUtil {
      * @return
      */
     public Claims parseJWT(String jwtStr){
-        return Jwts.parser().setSigningKey(key).parseClaimsJws(jwtStr).getBody();
+        return  Jwts.parser()
+                .setSigningKey(key)
+                .parseClaimsJws(jwtStr)
+                .getBody();
     }
 
 }
