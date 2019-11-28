@@ -20,6 +20,7 @@
         <module>tensquare_rabbitmq</module>
         <module>tensquare_user</module>
         <module>tensquare_sms</module>
+        <module>tensquare_eureka</module>
 
     </modules>
 
@@ -51,6 +52,21 @@
             <version>1.18.6</version>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.M9</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+
 
     <repositories>
         <repository>

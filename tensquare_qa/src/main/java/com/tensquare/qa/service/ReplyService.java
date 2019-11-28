@@ -107,7 +107,6 @@ public class ReplyService {
 	private Specification<Reply> createSpecification(Map searchMap) {
 
 		return new Specification<Reply>() {
-
 			@Override
 			public Predicate toPredicate(Root<Reply> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				List<Predicate> predicateList = new ArrayList<Predicate>();
