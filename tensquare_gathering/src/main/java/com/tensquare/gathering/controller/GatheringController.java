@@ -1,7 +1,7 @@
 package com.tensquare.gathering.controller;
 
-import com.tensquare.gathering.GatheringService;
 import com.tensquare.gathering.pojo.Gathering;
+import com.tensquare.gathering.service.GatheringService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;

@@ -22,7 +22,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>,JpaSpecificati
      * @return
      */
     @Query("select p from Problem p where id in  (select problemid from Pl where labelid=?1 ) order by replytime desc")
-    public Page<Problem> findNewListByLabelId(String labelId, Pageable pageable);
+    Page<Problem> findNewListByLabelId(String labelId, Pageable pageable);
 
 
 
@@ -33,7 +33,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>,JpaSpecificati
      * @return
      */
     @Query("select p from Problem p where id in  (select problemid from Pl where labelid=?1 ) order by reply desc")
-    public Page<Problem> findHotListByLabelId(String labelId, Pageable pageable);
+    Page<Problem> findHotListByLabelId(String labelId, Pageable pageable);
 
 
 
@@ -44,7 +44,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>,JpaSpecificati
      * @return
      */
     @Query("select p from Problem p where id in  (select problemid from Pl where labelid=?1 ) and reply=0  order by createtime desc")
-    public Page<Problem> findWaitListByLabelId(String labelId, Pageable pageable);
+    Page<Problem> findWaitListByLabelId(String labelId, Pageable pageable);
 
 
 
@@ -54,7 +54,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>,JpaSpecificati
      * @return
      */
     @Query("select p from Problem p  order by replytime desc")
-    public Page<Problem> findNewList( Pageable pageable);
+    Page<Problem> findNewList( Pageable pageable);
 
 
 
@@ -64,7 +64,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>,JpaSpecificati
      * @return
      */
     @Query("select p from Problem p  order by reply desc")
-    public Page<Problem> findHotList( Pageable pageable);
+    Page<Problem> findHotList( Pageable pageable);
 
     /**
      * 等待回答列表(全部)
@@ -72,7 +72,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>,JpaSpecificati
      * @return
      */
     @Query("select p from Problem p where reply=0  order by createtime desc")
-    public Page<Problem> findWaitList( Pageable pageable);
+    Page<Problem> findWaitList( Pageable pageable);
 
 
 }
