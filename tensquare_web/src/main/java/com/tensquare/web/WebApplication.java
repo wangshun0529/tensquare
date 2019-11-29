@@ -16,5 +16,6 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 public class WebApplication {
     public static void main(String[] args) {
         SpringApplication.run(WebApplication.class,args);
+        System.out.println("WebApplication is running");
     }
 }

@@ -13,6 +13,7 @@ import util.JwtUtil;
 public class ManagerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ManagerApplication.class);
+        System.out.println("ManagerApplication is running");
     }
 
     @Bean
