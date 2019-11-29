@@ -17,6 +17,7 @@ public class QaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(QaApplication.class, args);
+		System.out.println("QaApplication is running");
 	}
 
 

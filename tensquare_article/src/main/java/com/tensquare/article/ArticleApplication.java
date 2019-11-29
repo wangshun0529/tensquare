@@ -14,6 +14,7 @@ public class ArticleApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ArticleApplication.class, args);
+		System.out.println("ArticleApplication is running");
 	}
 
 	@Bean

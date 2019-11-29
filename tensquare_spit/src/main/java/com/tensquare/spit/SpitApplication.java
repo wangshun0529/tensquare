@@ -10,8 +10,8 @@ import util.JwtUtil;
 public class SpitApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(SpitApplication.class);
+        System.out.println("SpitApplication is running");
     }
 
     @Bean

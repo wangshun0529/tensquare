@@ -33,4 +33,5 @@ public class FriendApplication {
     public IdWorker idWorker(){
         return new IdWorker();
     }
+
 }

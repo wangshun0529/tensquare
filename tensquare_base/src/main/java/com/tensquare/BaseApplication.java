@@ -16,6 +16,7 @@ import util.IdWorker;
 public class BaseApplication{
     public static void main(String[] args) {
         SpringApplication.run(BaseApplication.class,args);
+        System.out.println("BaseApplication is running");
     }
 
     @Bean

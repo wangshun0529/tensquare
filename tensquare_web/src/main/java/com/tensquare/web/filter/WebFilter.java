@@ -31,7 +31,6 @@ public class WebFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        System.out.println("zuul过滤器...");
         //向header中添加鉴权令牌
         //得到request上下文
         RequestContext currentContext = RequestContext.getCurrentContext();

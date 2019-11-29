@@ -8,6 +8,7 @@ public class RecruitApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RecruitApplication.class, args);
+		System.out.println("RecruitApplication is running");
 	}
 
 	@Bean

@@ -10,6 +10,7 @@ public class GatheringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatheringApplication.class, args);
+		System.out.println("GatheringApplication is running");
 	}
 
 	@Bean

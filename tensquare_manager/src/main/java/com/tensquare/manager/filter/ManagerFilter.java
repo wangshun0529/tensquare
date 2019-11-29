@@ -62,7 +62,6 @@ public class ManagerFilter extends ZuulFilter {
      */
     @Override
     public Object run() throws ZuulException {
-        System.out.println("经过后台过滤器了！");
         RequestContext requestContext = RequestContext.getCurrentContext();
         //request域
         HttpServletRequest request = requestContext.getRequest();
